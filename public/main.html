@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airport Information Board</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main information board container -->
+    <div id="info-board">
+        <h1>Flight Information</h1>
+        <!-- Table for displaying flight information -->
+        <table id="flights-table">
+            <thead>
+                <tr>
+                    <th>Flight Number</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Arrival</th>
+                    <th>Departure</th>
+                    <th>Gate</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="flights-body">
+                <!-- Flight information will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Admin Login Section -->
+    <div id="admin-login">
+        <h2>Admin Login</h2>
+        <!-- Form for admin login -->
+        <form id="admin-login-form">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+    <script>
+        // Add event listener for admin login form submission
+        document.getElementById('admin-login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+            const password = document.getElementById('password').value; // Get password input value
+
+            // Send login request to the server
+            fetch('/admin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ password }) // Send password as URL encoded string
+            })
+            .then(response => {
+                // Redirect to the admin page if login is successful
+                if (response.redirected) {
+                    window.location.href = response.url;
+                } else {
+                    alert('Unauthorized access. Please check your password.'); // Show error message if login fails
+                }
+            })
+            .catch(error => {
+                console.error('Error logging in:', error); // Log error to console
+                alert('Error logging in. Please try again.'); // Show error message
+            });
+        });
+    </script>
+</body>
+</html>

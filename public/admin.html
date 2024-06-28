@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Interface</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tbody tr:hover {
+            background-color: #e9ecef;
+        }
+        .form-section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: 10px;
+            color: #495057;
+        }
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-section button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .form-section button:hover {
+            background-color: #0056b3;
+        }
+        .edit-button, .delete-button {
+            padding: 14px 28px;
+            margin: 0 10px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .edit-button {
+            background-color: #28a745;
+        }
+        .edit-button:hover {
+            background-color: #218838;
+        }
+        .delete-button {
+            background-color: #dc3545;
+        }
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="admin-heading">Admin Menu</h1>
+
+    <!-- Flight Information -->
+    <div class="section flight-info">
+        <h2 class="section-heading">Flight Information</h2>
+        <table id="flights-table" class="info-table">
+            <thead>
+                <tr class="table-header">
+                    <th>Flight Number</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Gate</th>
+                    <th>Status</th>
+                    <th>Action</th> <!-- New column for action buttons -->
+                </tr>
+            </thead>
+            <tbody id="flights-body" class="table-body">
+                <!-- Flight information rows will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Airplane Information -->
+    <div class="section airplane-info">
+        <h2 class="section-heading">Airplane Information</h2>
+        <table id="airplanes-table" class="info-table">
+            <thead>
+                <tr class="table-header">
+                    <th>Airplane ID</th>
+                    <th>Flight Number</th>
+                    <th>Company Name</th>
+                    <th>Type</th>
+                    <th>Capacity</th>
+                    <th>Action</th> <!-- New column for action buttons -->
+                </tr>
+            </thead>
+            <tbody id="airplanes-body" class="table-body">
+                <!-- Airplane information rows will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Company Information -->
+    <div class="section company-info">
+        <h2 class="section-heading">Company Information</h2>
+        <table id="companies-table" class="info-table">
+            <thead>
+                <tr class="table-header">
+                    <th>Company ID</th>
+                    <th>Company Name</th>
+                    <th>CEO</th>
+                    <th>Airplanes Count</th>
+                    <th>Employee Count</th>
+                    <th>Action</th> <!-- New column for action buttons -->
+                </tr>
+            </thead>
+            <tbody id="companies-body" class="table-body">
+                <!-- Company information rows will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add New Flight -->
+    <div class="form-section add-flight">
+        <h2 class="form-heading">Add New Flight</h2>
+        <form id="add-flight-form" class="input-form">
+            <label for="flight-number">Flight Number:</label>
+            <input type="text" id="flight-number" name="flightNumber" required>
+
+            <label for="origin">Origin:</label>
+            <input type="text" id="origin" name="origin" required>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="departure">Departure Time:</label>
+            <input type="text" id="departure" name="departure" required>
+
+            <label for="arrival">Arrival Time:</label>
+            <input type="text" id="arrival" name="arrival" required>    
+
+            <label for="gate">Gate:</label>
+            <input type="text" id="gate" name="gate" required>
+
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" required>
+
+            <button type="submit" class="form-button">Add Flight</button>
+        </form>
+    </div>
+
+    <!-- Add New Airplane -->
+    <div class="form-section add-airplane">
+        <h2 class="form-heading">Add New Airplane</h2>
+        <form id="add-airplane-form" class="input-form">
+            <label for="airplane-id">Airplane ID:</label>
+            <input type="text" id="airplane-id" name="airplaneID" required>
+
+            <label for="flight-number">Flight Number:</label>
+            <input type="text" id="flight-number" name="flightNumber" required>
+
+            <label for="company-name">Company Name:</label>
+            <input type="text" id="company-name" name="companyName" required>
+
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" required>
+
+            <label for="capacity">Capacity:</label>
+            <input type="text" id="capacity" name="capacity" required>
+
+            <button type="submit" class="form-button">Add Airplane</button>
+        </form>
+    </div>
+
+    <!-- Add New Company -->
+    <div class="form-section add-company">
+        <h2 class="form-heading">Add New Company</h2>
+        <form id="add-company-form" class="input-form">
+            <label for="company-id">Company ID:</label>
+            <input type="text" id="company-id" name="companyId" required>
+
+            <label for="company-name">Company Name:</label>
+            <input type="text" id="company-name" name="companyName" required>
+
+            <label for="ceo">CEO:</label>
+            <input type="text" id="ceo" name="ceo" required>
+
+            <label for="airplanes-count">Airplanes Count:</label>
+            <input type="text" id="airplanes-count" name="airplanesCount" required>
+
+            <label for="employee-count">Employee Count:</label>
+            <input type="text" id="employee-count" name="employeeCount" required>
+
+            <button type="submit" class="form-button">Add Company</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <a href="edit.html" class="edit-button">Edit</a>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

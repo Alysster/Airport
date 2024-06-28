@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #495057;
+        }
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+        .form-section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-section edit-flight">
+        <h1 class="form-heading">Edit Flight</h1>
+        <form id="editForm" class="input-form">
+            <label for="flightNumber">Flight Number:</label>
+            <input type="text" id="flightNumber" name="flightNumber" required>
+
+            <label for="origin">Origin:</label>
+            <input type="text" id="origin" name="origin">
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination">
+
+            <label for="arrival">Arrival Time:</label>
+            <input type="text" id="arrival" name="arrival">
+
+            <label for="departure">Departure Time:</label>
+            <input type="text" id="departure" name="departure">
+
+            <label for="gate">Gate:</label>
+            <input type="text" id="gate" name="gate">
+
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status">
+
+            <button type="button" onclick="fetchFlightDetails()" class="form-button">Fetch Flight Details</button>
+            <button type="submit" class="form-button">Save Changes</button>
+        </form>
+    </div>
+
+    <div class="form-section edit-airplane">
+        <h1 class="form-heading">Edit Airplane</h1>
+        <form id="editAirplaneForm" class="input-form">
+            <label for="airplaneID">Airplane ID:</label>
+            <input type="text" id="airplaneID" name="airplaneID" required>
+
+            <label for="flightNumberAirplane">Flight Number:</label>
+            <input type="text" id="flightNumberAirplane" name="flightNumber">
+
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName">
+
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type">
+
+            <label for="capacity">Capacity:</label>
+            <input type="number" id="capacity" name="capacity">
+
+            <button type="button" onclick="fetchAirplaneDetails()" class="form-button">Fetch Airplane Details</button>
+            <button type="submit" class="form-button">Save Changes</button>
+        </form>
+    </div>
+
+    <div class="form-section edit-company">
+        <h1 class="form-heading">Edit Company</h1>
+        <form id="editCompanyForm" class="input-form">
+            <label for="companyId">Company ID:</label>
+            <input type="text" id="companyId" name="companyId" required>
+
+            <label for="ceo">CEO:</label>
+            <input type="text" id="ceo" name="ceo">
+
+            <label for="airplanesCount">Airplanes Count:</label>
+            <input type="number" id="airplanesCount" name="airplanesCount">
+
+            <label for="employeeCount">Employee Count:</label>
+            <input type="text" id="employeeCount" name="employeeCount">
+
+            <button type="button" onclick="fetchCompanyDetails()" class="form-button">Fetch Company Details</button>
+            <button type="submit" class="form-button">Save Changes</button>
+        </form>
+    </div>
+
+    <script src="edit.js"></script>
+</body>
+</html>
+

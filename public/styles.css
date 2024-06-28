@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif; /* Set default font */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #f0f0f0; /* Set background color */
+}
+
+#info-board {
+    width: 80%; /* Set width of info board */
+    margin: 20px auto; /* Center the info board */
+    background-color: #fff; /* Set background color */
+    padding: 20px; /* Add padding */
+    border-radius: 8px; /* Round corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+#flights-table {
+    width: 100%; /* Set table width */
+    border-collapse: collapse; /* Collapse table borders */
+    margin-top: 20px; /* Add top margin */
+}
+
+#flights-table th, #flights-table td {
+    padding: 10px; /* Add padding to cells */
+    text-align: left; /* Left-align text */
+    border-bottom: 1px solid #ddd; /* Add bottom border */
+}
+
+#admin-login {
+    margin-top: 20px; /* Add top margin */
+    border: 1px solid #ccc; /* Add border */
+    padding: 20px; /* Add padding */
+    width: 60%; /* Set width */
+    margin: 20px auto; /* Center the login section */
+    text-align: center; /* Center-align text */
+}
+
+#admin-login h2 {
+    margin-bottom: 10px; /* Add bottom margin */
+}
+
+#admin-login form {
+    display: flex; /* Use flexbox for form layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align elements */
+}
+
+#admin-login label {
+    margin-bottom: 5px; /* Add bottom margin */
+}
+
+#admin-login input[type="password"] {
+    padding: 8px; /* Add padding */
+    width: 200px; /* Set input width */
+    font-size: 14px; /* Set font size */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 4px; /* Round corners */
+    margin-bottom: 10px; /* Add bottom margin */
+}
+
+#admin-login button {
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Set font size */
+    background-color: #4CAF50; /* Set background color */
+    color: white; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round corners */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+#admin-login button:hover {
+    background-color: #45a049; /* Change background color on hover */
+}
